@@ -1,0 +1,71 @@
+openapi: 3.0.3
+info:
+  title: Parcel Tracker API
+  version: 1.0.0
+  description: A small fictional API used to demonstrate Truthpage for Confluence.
+servers:
+  - url: https://api.parceltracker.example/v1
+paths:
+  /parcels:
+    get:
+      summary: List parcels
+      parameters:
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [created, in_transit, delivered]
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: A page of parcels
+    post:
+      summary: Register a parcel
+      responses:
+        "201":
+          description: The parcel was registered
+  /parcels/{id}:
+    get:
+      summary: Read one parcel
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: The parcel
+  /parcels/{id}/events:
+    get:
+      summary: List the tracking events of a parcel
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Tracking events, newest first
+  /courier/{id}:
+    get:
+      summary: Read the courier assigned to deliveries
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: The courier
+  /notifications/settings:
+    put:
+      summary: Change which tracking events send a notification
+      responses:
+        "200":
+          description: The saved notification settings
