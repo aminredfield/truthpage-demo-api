@@ -15,8 +15,8 @@ Nothing here is a real service. The file `openapi.yaml` is the only source of tr
 | `POST /parcels` | Register a parcel |
 | `GET /parcels/{id}` | Read one parcel |
 | `GET /parcels/{id}/events` | Tracking events of a parcel |
-| `GET /courier/{id}` | The courier assigned to deliveries |
-| `PUT /notifications/settings` | Choose which events send a notification |
+| `GET /couriers/{id}` | The courier assigned to deliveries |
+| `PATCH /notifications/settings` | Choose which events send a notification |
 
 ## Licence
 
