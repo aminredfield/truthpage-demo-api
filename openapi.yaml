@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Parcel Tracker API
-  version: 1.0.0
+  version: 2.0.0
   description: A small fictional API used to demonstrate Truthpage for Confluence.
 servers:
   - url: https://api.parceltracker.example/v1
@@ -51,7 +51,7 @@ paths:
       responses:
         "200":
           description: Tracking events, newest first
-  /courier/{id}:
+  /couriers/{id}:
     get:
       summary: Read the courier assigned to deliveries
       parameters:
@@ -64,7 +64,7 @@ paths:
         "200":
           description: The courier
   /notifications/settings:
-    put:
+    patch:
       summary: Change which tracking events send a notification
       responses:
         "200":
